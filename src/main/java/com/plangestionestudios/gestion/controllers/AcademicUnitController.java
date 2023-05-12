@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+@CrossOrigin(origins = "https://fabrica-escuela-production.up.railway.app")
 @RequestMapping("api/academicUnit")
 @RestController
 public class AcademicUnitController {
