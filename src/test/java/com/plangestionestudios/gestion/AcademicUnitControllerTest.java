@@ -23,7 +23,7 @@ public class AcademicUnitControllerTest {
     public static void setUp() {
         academicUnit.setNameAcademicUnit("name");
         academicUnit.setCodeAcademicUnit("code");
-        academicUnit.setTypeAcademicUnit("type");
+        academicUnit.setTypeAcademicUnit("facultad");
         academicUnit.setDeanName("dean");
         academicUnit.setDescription("description");
         academicUnit.setUbicationAcademicUnit("ubication");
