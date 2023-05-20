@@ -42,7 +42,6 @@ public class AcademicSubUnitServiceImp implements AcademicSubUnitService{
     public AcademicSubUnit updateAcademicSubUnit(int id, AcademicSubUnit academicSubUnit) {
 
         if(!this.isCorrectUpdateInfoASU(academicSubUnit)) return null;
-
         AcademicSubUnit foundAcademicSubUnit = this.getAcademicSubUnitById(id);
 
         if(foundAcademicSubUnit != null){
