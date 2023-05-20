@@ -24,8 +24,9 @@ public class AcademicSubUnitController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AcademicSubUnit> getAcademicSubUnitById(@PathVariable("id") int id) {
-
-        return null;
+        AcademicSubUnit academicSubUnit = this.academicSubUnitService.getAcademicSubUnitById(id);
+        if(academicSubUnit != null) return new ResponseEntity<>(academicSubUnit, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
 
     @PostMapping("")
