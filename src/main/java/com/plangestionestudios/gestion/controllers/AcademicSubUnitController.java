@@ -1,6 +1,7 @@
 package com.plangestionestudios.gestion.controllers;
 
 import com.plangestionestudios.gestion.entities.AcademicSubUnit;
+import com.plangestionestudios.gestion.entities.AcademicUnit;
 import com.plangestionestudios.gestion.services.academicSubUnit.AcademicSubUnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,13 @@ public class AcademicSubUnitController {
         AcademicSubUnit academicSubUnit = this.academicSubUnitService.getAcademicSubUnitById(id);
         if(academicSubUnit != null) return new ResponseEntity<>(academicSubUnit, HttpStatus.OK);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<AcademicSubUnit> updateAcademicSubUnitById(@PathVariable("id") int id, @RequestBody AcademicSubUnit academicSubUnitBody) {
+        AcademicSubUnit academicSubUnit = this.academicSubUnitService.updateAcademicSubUnit(id, academicSubUnitBody);
+        if(academicSubUnit != null) return new ResponseEntity<>(academicSubUnit, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping("")
