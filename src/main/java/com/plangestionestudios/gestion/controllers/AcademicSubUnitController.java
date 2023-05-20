@@ -1,6 +1,7 @@
 package com.plangestionestudios.gestion.controllers;
 
 import com.plangestionestudios.gestion.entities.AcademicSubUnit;
+import com.plangestionestudios.gestion.entities.AcademicUnit;
 import com.plangestionestudios.gestion.services.academicSubUnit.AcademicSubUnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
