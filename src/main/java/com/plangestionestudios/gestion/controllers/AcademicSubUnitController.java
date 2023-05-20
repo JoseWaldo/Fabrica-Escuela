@@ -1,7 +1,6 @@
 package com.plangestionestudios.gestion.controllers;
 
 import com.plangestionestudios.gestion.entities.AcademicSubUnit;
-import com.plangestionestudios.gestion.entities.AcademicUnit;
 import com.plangestionestudios.gestion.services.academicSubUnit.AcademicSubUnitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +41,13 @@ public class AcademicSubUnitController {
         AcademicSubUnit academicSubUnitCreated = this.academicSubUnitService.createAcademicSubUnit(academicSubUnit);
         if(academicSubUnitCreated != null) return new ResponseEntity<>(academicSubUnitCreated,HttpStatus.OK);
         return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteAcademicSubUnit(@PathVariable("id") int id) {
+        boolean wasDeleteAcademicSubUnit = this.academicSubUnitService.deleteAcademicSubUnit(id);
+        if(wasDeleteAcademicSubUnit) return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 }
