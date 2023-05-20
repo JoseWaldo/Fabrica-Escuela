@@ -76,7 +76,7 @@ public class AcademicUnitServiceImp implements AcademicUnitService{
         String deanAU = academicUnit.getDeanName();
         String descriptionAU = academicUnit.getDescription();
         String ubicationAU = academicUnit.getUbicationAcademicUnit();
-        String codeCenterCodeAU = academicUnit.getCostCenterCode();
+        String codeCenterCodeAU = academicUnit.getCostCenterCode(); 
 
         if(nameAU == null || codeAU == null || typeAU == null || deanAU == null || descriptionAU == null || ubicationAU == null || codeCenterCodeAU == null ) return false;
         if(codeAU.length() == 0) return false;
