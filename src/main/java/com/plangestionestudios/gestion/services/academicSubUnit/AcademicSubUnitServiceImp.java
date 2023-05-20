@@ -40,7 +40,11 @@ public class AcademicSubUnitServiceImp implements AcademicSubUnitService{
 
     @Override
     public AcademicSubUnit updateAcademicSubUnit(int id, AcademicSubUnit academicSubUnit) {
+
+        if(!this.isCorrectUpdateInfoASU(academicSubUnit)) return null;
+
         AcademicSubUnit foundAcademicSubUnit = this.getAcademicSubUnitById(id);
+
         if(foundAcademicSubUnit != null){
             foundAcademicSubUnit.setNameAcademicSubUnit(academicSubUnit.getNameAcademicSubUnit());
             foundAcademicSubUnit.setHeadName(academicSubUnit.getHeadName());
@@ -96,4 +100,23 @@ public class AcademicSubUnitServiceImp implements AcademicSubUnitService{
 
         return true;
     }
+
+    private boolean isCorrectUpdateInfoASU(AcademicSubUnit academicSubUnit) {
+        if(academicSubUnit == null) return false;
+
+        String nameASU = academicSubUnit.getNameAcademicSubUnit();
+        String headNameASU = academicSubUnit.getHeadName();
+        String typeASU = academicSubUnit.getTypeAcademicSubUnit();
+        String descriptionASU = academicSubUnit.getDescription();
+
+        String[] typesASU = {"departamento", "instituto", "escuela"};
+
+        if(nameASU == null || headNameASU == null || typeASU == null || descriptionASU == null) return false;
+
+        boolean isFoundTypeASU = Arrays.stream(typesASU).anyMatch(type -> type.equals(typeASU.toLowerCase()));
+        if(!isFoundTypeASU) return false;
+
+        return true;
+    }
+
 }
