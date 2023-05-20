@@ -22,6 +22,11 @@ public class AcademicSubUnitServiceImp implements AcademicSubUnitService{
 
     @Override
     public boolean deleteAcademicSubUnit(int id) {
+        AcademicSubUnit academicSubUnit = this.getAcademicSubUnitById(id);
+        if(academicSubUnit != null) {
+            this.academicSubUnitRepository.deleteById(id);
+            return true;
+        }
         return false;
     }
 
