@@ -1,5 +1,6 @@
 package com.plangestionestudios.gestion.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,6 +36,8 @@ public class AcademicProgram {
     private String contactosAyudaAcademicProgram;
     @Column(name = "plan_de_estudios")
     private String planEstudiosAcademicProgram;
-    @OneToMany (mappedBy = "academicProgram")
-    private List<AcademicSubUnit> academicSubUnits;
+    @ManyToOne
+    @JoinColumn(name = "id_academic_subunit", nullable = false)
+    @JsonBackReference
+    private AcademicSubUnit academicSubUnit;
 }
