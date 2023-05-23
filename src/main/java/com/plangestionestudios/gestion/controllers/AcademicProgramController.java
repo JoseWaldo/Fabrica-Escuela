@@ -38,18 +38,14 @@ public class AcademicProgramController {
         return new ResponseEntity<>(academicProgramList, HttpStatus.OK);
     }
 
-/*
     @PutMapping("/{id}")
-    public ResponseEntity<AcademicUnit> updateAcademicUnitById(@PathVariable("id") int id, @RequestBody AcademicUnit academicUnit) {
-        AcademicUnit academicUnitUpdated = this.academicUnitService.updateAcademicUnit(id, academicUnit);
-        if(academicUnitUpdated != null) return new ResponseEntity<>(academicUnitUpdated, HttpStatus.OK);
-        return new ResponseEntity<>(academicUnitUpdated, HttpStatus.NOT_FOUND);
+    public ResponseEntity<AcademicProgram> updateAcademicProgramById(@PathVariable("id") int id, @RequestBody AcademicProgram academicProgram) {
+        AcademicProgram academicProgramUpdated = this.academicProgramService.updateAcademicProgram(id, academicProgram);
+        if(academicProgramUpdated != null) return new ResponseEntity<>(academicProgramUpdated, HttpStatus.OK);
+        return new ResponseEntity<>(academicProgramUpdated, HttpStatus.NOT_FOUND);
     }
 
-
-
-
-
+/*
     @PostMapping("")
     public ResponseEntity<AcademicUnit> createAcademicUnits(@RequestBody AcademicUnit academicUnit) {
         AcademicUnit academicUnitCreated = academicUnitService.createAcademicUnit(academicUnit);
