@@ -31,12 +31,14 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
         return null;
     }
 
-    /*
     @Override
-    public List<AcademicUnit> getAllAcademicUnits() {
-        List<AcademicUnit> academicUnitList = academicUnitRepository.findAll();
-        return academicUnitList;
+    public List<AcademicProgram> getAllAcademicProgram() {
+        List<AcademicProgram> academicProgramsList = academicProgramRepository.findAll();
+        return academicProgramsList;
     }
+
+    /*
+
 
     @Override
     public AcademicUnit updateAcademicUnit(int id, AcademicUnit academicUnit) {
@@ -48,13 +50,6 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
             this.academicUnitRepository.save(foundAcademicUnit);
             return this.getAcademicUnitById(id);
         }
-        return null;
-    }
-
-    @Override
-    public AcademicUnit getAcademicUnitById(int id) {
-        Optional<AcademicUnit> academicUnit = academicUnitRepository.findById(id);
-        if(academicUnit.isPresent()) return academicUnit.get();
         return null;
     }
 
