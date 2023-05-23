@@ -15,6 +15,7 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
     @Autowired
     private AcademicProgramRepository academicProgramRepository;
 
+    @Override
     public boolean deleteAcademicProgram(int id) {
         AcademicProgram academicProgramFound = this.getAcademicProgramById(id);
         if(academicProgramFound != null) {
@@ -23,7 +24,7 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
         }
         return false;
     }
-
+    @Override
     public AcademicProgram getAcademicProgramById(int id) {
         Optional<AcademicProgram> academicProgram = academicProgramRepository.findById(id);
         if(academicProgram.isPresent()) return academicProgram.get();
