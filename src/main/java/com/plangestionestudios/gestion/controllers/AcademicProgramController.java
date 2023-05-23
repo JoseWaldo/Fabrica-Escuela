@@ -45,14 +45,13 @@ public class AcademicProgramController {
         return new ResponseEntity<>(academicProgramUpdated, HttpStatus.NOT_FOUND);
     }
 
-/*
     @PostMapping("")
-    public ResponseEntity<AcademicUnit> createAcademicUnits(@RequestBody AcademicUnit academicUnit) {
-        AcademicUnit academicUnitCreated = academicUnitService.createAcademicUnit(academicUnit);
-        if(academicUnitCreated != null) {
-            return new ResponseEntity<>(academicUnitCreated, HttpStatus.CREATED);
+    public ResponseEntity<AcademicProgram> createAcademicProgram(@RequestBody AcademicProgram academicProgram) {
+        AcademicProgram academicProgramCreated = academicProgramService.createAcademicProgram(academicProgram);
+        if(academicProgramCreated != null) {
+            return new ResponseEntity<>(academicProgramCreated, HttpStatus.CREATED);
         }
-        return new ResponseEntity<>(academicUnitCreated, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(academicProgramCreated, HttpStatus.BAD_REQUEST);
     }
-*/
+
 }
