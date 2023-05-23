@@ -50,46 +50,43 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
         return null;
     }
 
-    /*
-
-
-
-
     @Override
-    public AcademicUnit createAcademicUnit(AcademicUnit academicUnit) {
-        if(!this.isCorrectInfoAU(academicUnit)) return null;
+    public AcademicProgram createAcademicProgram(AcademicProgram academicProgram) {
+        if(!this.isCorrectInfoAP(academicProgram)) return null;
 
-        String codeAU = academicUnit.getCodeAcademicUnit();
-        List<AcademicUnit> academicUnitFound = academicUnitRepository.findByCodeAcademicUnit(codeAU);
-        System.out.println(academicUnitFound);
-        if(academicUnitFound.isEmpty()) {
-            academicUnitRepository.save(academicUnit);
-            return academicUnit;
+        String codeAP = academicProgram.getCodeAcademicProgram();
+        List<AcademicProgram> academicProgramFound = academicProgramRepository.findByCodeAcademicProgram(codeAP);
+        if(academicProgramFound.isEmpty()) {
+            academicProgramRepository.save(academicProgram);
+            return academicProgram;
         }
         return null;
     }
 
-    private boolean isCorrectInfoAU(AcademicUnit academicUnit) {
+    private boolean isCorrectInfoAP(AcademicProgram academicProgram) {
 
-        if(academicUnit == null) return false;
+        if(academicProgram == null) return false;
 
-        String[] typesUA = {"facultad", "departamento", "instituto", "escuela", "corporación"};
+        String[] typesAP = {"Tecnología", "Técnica", "Licenciatura", "Pregrado", "Posgrado", "Especialidad", "Maestría", "Doctorado"};
+        String[] underthesystemAcademicProgramsAP = { "Presencial", "Virtual", "Mixta"};
 
-        String nameAU = academicUnit.getNameAcademicUnit();
-        String codeAU = academicUnit.getCodeAcademicUnit();
-        String typeAU = academicUnit.getTypeAcademicUnit().toLowerCase();
-        String deanAU = academicUnit.getDeanName();
-        String descriptionAU = academicUnit.getDescription();
-        String ubicationAU = academicUnit.getUbicationAcademicUnit();
-        String codeCenterCodeAU = academicUnit.getCostCenterCode(); 
+        String nameAP = academicProgram.getNameAcademicProgram();
+        String codeAP = academicProgram.getCodeAcademicProgram();
+        String typeAP = academicProgram.getTypeAcademicProgram().toLowerCase();
+        String managerAP = academicProgram.getManagerName();
+        String descriptionAP = academicProgram.getDescription();
+        String underthesystemAcademicProgramAP = academicProgram.getUnderthesystemAcademicProgram();
+        String SNIESSCodeAP = academicProgram.getSNIESSCode();
+        String contactosAyudaAcademicProgrameAP = academicProgram.getContactosAyudaAcademicProgram();
+        String planEstudiosAcademicProgramAP = academicProgram.getPlanEstudiosAcademicProgram();
 
-        if(nameAU == null || codeAU == null || typeAU == null || deanAU == null || descriptionAU == null || ubicationAU == null || codeCenterCodeAU == null ) return false;
-        if(codeAU.length() == 0) return false;
+        if(nameAP == null || codeAP == null || typeAP == null || managerAP == null || descriptionAP == null || underthesystemAcademicProgramAP == null || SNIESSCodeAP == null || contactosAyudaAcademicProgrameAP == null || planEstudiosAcademicProgramAP == null ) return false;
+        if(codeAP.length() == 0 && SNIESSCodeAP.length() == 0 ) return false;
 
-        boolean isFoundTypeUA = Arrays.stream(typesUA).anyMatch(type -> type.equals(typeAU));
-        if(!isFoundTypeUA) return false;
+        boolean isFoundTypeandunderthesystemAcademicProgramAP = Arrays.stream(typesAP).anyMatch(type -> type.equals(typeAP)) && Arrays.stream(underthesystemAcademicProgramsAP).anyMatch(type -> type.equals(underthesystemAcademicProgramAP));
+        if(!isFoundTypeandunderthesystemAcademicProgramAP) return false;
 
         return true;
     }
-*/
+
 }
