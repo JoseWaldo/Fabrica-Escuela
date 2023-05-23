@@ -7,9 +7,9 @@ import java.util.List;
 public interface AcademicProgramService {
     public boolean deleteAcademicProgram(int id);
     public AcademicProgram getAcademicProgramById(int id);
-
+    public List<AcademicProgram> getAllAcademicProgram();
     /*
-    public List<AcademicUnit> getAllAcademicUnits();
+
     public AcademicUnit updateAcademicUnit(int id, AcademicUnit academicUnit);
     public AcademicUnit createAcademicUnit(AcademicUnit academicUnit);
      */
