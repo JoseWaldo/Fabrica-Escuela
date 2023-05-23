@@ -37,21 +37,23 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
         return academicProgramsList;
     }
 
-    /*
-
-
     @Override
-    public AcademicUnit updateAcademicUnit(int id, AcademicUnit academicUnit) {
-        AcademicUnit foundAcademicUnit = this.getAcademicUnitById(id);
-        if(foundAcademicUnit != null) {
-            foundAcademicUnit.setDeanName(academicUnit.getDeanName());
-            foundAcademicUnit.setDescription(academicUnit.getDescription());
-            foundAcademicUnit.setNameAcademicUnit(academicUnit.getNameAcademicUnit());
-            this.academicUnitRepository.save(foundAcademicUnit);
-            return this.getAcademicUnitById(id);
+    public AcademicProgram updateAcademicProgram(int id, AcademicProgram academicProgram) {
+        AcademicProgram foundAcademicProgram = this.getAcademicProgramById(id);
+        if(foundAcademicProgram != null) {
+            foundAcademicProgram.setManagerName(academicProgram.getManagerName());
+            foundAcademicProgram.setDescription(academicProgram.getDescription());
+            foundAcademicProgram.setNameAcademicProgram(academicProgram.getNameAcademicProgram());
+            this.academicProgramRepository.save(foundAcademicProgram);
+            return this.getAcademicProgramById(id);
         }
         return null;
     }
+
+    /*
+
+
+
 
     @Override
     public AcademicUnit createAcademicUnit(AcademicUnit academicUnit) {
