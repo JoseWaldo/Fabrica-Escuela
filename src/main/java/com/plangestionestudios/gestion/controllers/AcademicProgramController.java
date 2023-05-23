@@ -1,5 +1,6 @@
 package com.plangestionestudios.gestion.controllers;
 
+import com.plangestionestudios.gestion.entities.AcademicProgram;
 import com.plangestionestudios.gestion.entities.AcademicUnit;
 import com.plangestionestudios.gestion.services.academicProgram.AcademicProgramService;
 import com.plangestionestudios.gestion.services.academicUnit.AcademicUnitService;
@@ -23,6 +24,13 @@ public class AcademicProgramController {
         if(wasDeleteAcademicProgram) return new ResponseEntity<>(HttpStatus.OK);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<AcademicProgram> getAcademicProgramById(@PathVariable("id") int id) {
+        AcademicProgram academicProgram = academicProgramService.getAcademicProgramById(id);
+        if(academicProgram != null) return new ResponseEntity<>(academicProgram, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
 /*
     @PutMapping("/{id}")
     public ResponseEntity<AcademicUnit> updateAcademicUnitById(@PathVariable("id") int id, @RequestBody AcademicUnit academicUnit) {
@@ -37,12 +45,7 @@ public class AcademicProgramController {
         return new ResponseEntity<>(academicUnitList, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<AcademicUnit> getAcademicUnitById(@PathVariable("id") int id) {
-        AcademicUnit academicUnit = academicUnitService.getAcademicUnitById(id);
-        if(academicUnit != null) return new ResponseEntity<>(academicUnit, HttpStatus.OK);
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-    }
+
 
     @PostMapping("")
     public ResponseEntity<AcademicUnit> createAcademicUnits(@RequestBody AcademicUnit academicUnit) {
