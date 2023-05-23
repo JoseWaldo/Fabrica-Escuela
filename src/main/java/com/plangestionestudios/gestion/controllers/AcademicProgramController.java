@@ -31,6 +31,13 @@ public class AcademicProgramController {
         if(academicProgram != null) return new ResponseEntity<>(academicProgram, HttpStatus.OK);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<AcademicProgram>> getAllAcademicProgram() {
+        List<AcademicProgram> academicProgramList = academicProgramService.getAllAcademicProgram();
+        return new ResponseEntity<>(academicProgramList, HttpStatus.OK);
+    }
+
 /*
     @PutMapping("/{id}")
     public ResponseEntity<AcademicUnit> updateAcademicUnitById(@PathVariable("id") int id, @RequestBody AcademicUnit academicUnit) {
@@ -39,11 +46,7 @@ public class AcademicProgramController {
         return new ResponseEntity<>(academicUnitUpdated, HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<List<AcademicUnit>> getAllAcademicUnits() {
-        List<AcademicUnit> academicUnitList = academicUnitService.getAllAcademicUnits();
-        return new ResponseEntity<>(academicUnitList, HttpStatus.OK);
-    }
+
 
 
 
