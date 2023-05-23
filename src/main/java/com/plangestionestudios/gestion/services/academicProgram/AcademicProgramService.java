@@ -8,9 +8,8 @@ public interface AcademicProgramService {
     public boolean deleteAcademicProgram(int id);
     public AcademicProgram getAcademicProgramById(int id);
     public List<AcademicProgram> getAllAcademicProgram();
+    public AcademicProgram updateAcademicProgram(int id, AcademicProgram academicProgram);
     /*
-
-    public AcademicUnit updateAcademicUnit(int id, AcademicUnit academicUnit);
     public AcademicUnit createAcademicUnit(AcademicUnit academicUnit);
      */
 }
