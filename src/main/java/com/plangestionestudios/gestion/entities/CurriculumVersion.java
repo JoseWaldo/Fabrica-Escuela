@@ -1,7 +1,14 @@
 package com.plangestionestudios.gestion.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "version_plan_de_estudios")
 public class CurriculumVersion {
