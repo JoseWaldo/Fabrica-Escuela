@@ -16,6 +16,11 @@ public class CurriculumVersionServiceImp implements CurriculumVersionService {
 
     @Override
     public boolean deleteCurriculumVersion(int id) {
+        CurriculumVersion curriculumVersionFound = this.getByIdCurriculumVersion(id);
+        if(curriculumVersionFound != null) {
+            this.curriculumVersionRepository.deleteById(id);
+            return true;
+        }
         return false;
     }
 
