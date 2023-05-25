@@ -35,4 +35,11 @@ public class CurriculumVersionController {
         if(curriculumVersion != null) return new ResponseEntity<>(curriculumVersion, HttpStatus.OK);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> deleteByIdCurriculumVersion(@PathVariable("id") int id) {
+        boolean wasDeleteCurriculumVersion = this.curriculumVersionService.deleteCurriculumVersion(id);
+        if(wasDeleteCurriculumVersion) return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
