@@ -5,10 +5,9 @@ import com.plangestionestudios.gestion.services.curriculumVersion.CurriculumVers
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequestMapping("api/curriculumVersion")
 @RestController
@@ -24,4 +23,16 @@ public class CurriculumVersionController {
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<CurriculumVersion>> getAllCurriculumVersion() {
+        List<CurriculumVersion> curriculumVersionList = this.curriculumVersionService.getAllCurriculumVersion();
+        return new ResponseEntity<>(curriculumVersionList, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<CurriculumVersion> getByIdCurriculumVersion(@PathVariable("id") int id) {
+        CurriculumVersion curriculumVersion = this.curriculumVersionService.getByIdCurriculumVersion(id);
+        if(curriculumVersion != null) return new ResponseEntity<>(curriculumVersion, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    }
 }
