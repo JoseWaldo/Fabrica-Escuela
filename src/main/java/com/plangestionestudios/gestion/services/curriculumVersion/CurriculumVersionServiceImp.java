@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CurriculumVersionServiceImp implements CurriculumVersionService {
@@ -20,11 +21,13 @@ public class CurriculumVersionServiceImp implements CurriculumVersionService {
 
     @Override
     public List<CurriculumVersion> getAllCurriculumVersion() {
-        return null;
+        return this.curriculumVersionRepository.findAll();
     }
 
     @Override
     public CurriculumVersion getByIdCurriculumVersion(int id) {
+        Optional<CurriculumVersion> curriculumVersionFound = this.curriculumVersionRepository.findById(id);
+        if(curriculumVersionFound.isPresent()) return curriculumVersionFound.get();
         return null;
     }
 
