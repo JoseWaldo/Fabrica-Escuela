@@ -16,8 +16,8 @@ public class CurriculumVersion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private int idCurriculumVersion;
-    @Column(unique = true, nullable = false, precision = 2)
+    @Column(name = "num_version_curriculum",unique = true, nullable = false, precision = 2)
     private int numCurriculumVersion;
-    @Column(nullable = true)
+    @Column(name = "total_creditos_version",nullable = true)
     private int totalCreditsCurriculumVersion;
 }
