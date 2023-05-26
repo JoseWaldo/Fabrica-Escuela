@@ -72,7 +72,7 @@ public class AcademicUnitServiceImp implements AcademicUnitService{
 
         String nameAU = academicUnit.getNameAcademicUnit();
         String codeAU = academicUnit.getCodeAcademicUnit();
-        String typeAU = academicUnit.getTypeAcademicUnit().toLowerCase();
+        String typeAU = academicUnit.getTypeAcademicUnit();
         String deanAU = academicUnit.getDeanName();
         String descriptionAU = academicUnit.getDescription();
         String ubicationAU = academicUnit.getUbicationAcademicUnit();
@@ -81,7 +81,7 @@ public class AcademicUnitServiceImp implements AcademicUnitService{
         if(nameAU == null || codeAU == null || typeAU == null || deanAU == null || descriptionAU == null || ubicationAU == null || codeCenterCodeAU == null ) return false;
         if(codeAU.length() == 0) return false;
 
-        boolean isFoundTypeUA = Arrays.stream(typesUA).anyMatch(type -> type.equals(typeAU));
+        boolean isFoundTypeUA = Arrays.stream(typesUA).anyMatch(type -> type.equals(typeAU.toLowerCase()));
         if(!isFoundTypeUA) return false;
 
         return true;
