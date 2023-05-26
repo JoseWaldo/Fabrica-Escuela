@@ -27,8 +27,15 @@ public class AcademicSubUnit {
     private String headName;
     @Column(name = "descripcion_sub_unidad_academica", nullable = false)
     private String description;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_academic_unit", nullable = false)
     @JsonBackReference
     private AcademicUnit academicUnit;
+
+    public Integer getAcademicUnitId() {
+        if(academicUnit != null) {
+            return academicUnit.getIdAcademicUnit();
+        }
+        return null;
+    }
 }
