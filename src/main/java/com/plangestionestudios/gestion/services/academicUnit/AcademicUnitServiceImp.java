@@ -18,8 +18,13 @@ public class AcademicUnitServiceImp implements AcademicUnitService{
     public boolean deleteAcademicUnit(int id) {
         AcademicUnit academicUnitFound = this.getAcademicUnitById(id);
         if(academicUnitFound != null) {
-            academicUnitRepository.deleteById(id);
-            return true;
+            try {
+                academicUnitRepository.deleteById(id);
+                return true;
+            } catch (Exception e) {
+                System.out.println("No se pueden eliminar Unidades Academicas con Subunidades dentro X|");
+                return false;
+            }
         }
         return false;
     }
