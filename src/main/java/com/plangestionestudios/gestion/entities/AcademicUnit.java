@@ -34,6 +34,6 @@ public class AcademicUnit {
     private String costCenterCode;
     @Column(name = "url_creacion_unidad_academica")
     private String urlCreationAcademicUnit;
-    @OneToMany (mappedBy = "academicUnit")
+    @OneToMany (mappedBy = "academicUnit", fetch = FetchType.LAZY)
     private List<AcademicSubUnit> academicSubUnits;
 }
