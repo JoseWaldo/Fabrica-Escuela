@@ -77,8 +77,8 @@ public class AcademicProgramServiceImp implements AcademicProgramService {
         String descriptionAP = academicProgram.getDescription();
         String underthesystemAcademicProgramAP = academicProgram.getUnderthesystemAcademicProgram();
         String SNIESSCodeAP = academicProgram.getSNIESSCode();
-        String contactosAyudaAcademicProgrameAP = academicProgram.getContactosAyudaAcademicProgram();
-        String planEstudiosAcademicProgramAP = academicProgram.getPlanEstudiosAcademicProgram();
+        String contactosAyudaAcademicProgrameAP = academicProgram.getSupportcontactsAcademicProgram();
+        String planEstudiosAcademicProgramAP = academicProgram.getCurriculumAcademicProgram();
 
         if(nameAP == null || codeAP == null || typeAP == null || managerAP == null || descriptionAP == null || underthesystemAcademicProgramAP == null || SNIESSCodeAP == null || contactosAyudaAcademicProgrameAP == null || planEstudiosAcademicProgramAP == null ) return false;
         if(codeAP.length() == 0 && SNIESSCodeAP.length() == 0 ) return false;
