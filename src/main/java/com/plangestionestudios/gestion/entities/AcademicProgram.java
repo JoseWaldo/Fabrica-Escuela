@@ -1,12 +1,9 @@
 package com.plangestionestudios.gestion.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -33,11 +30,11 @@ public class AcademicProgram {
     @Column(name = "codigo_SNIESS", nullable = false)
     private String SNIESSCode;
     @Column(name = "contactos_ayuda")
-    private String contactosAyudaAcademicProgram;
+    private String supportcontactsAcademicProgram;
     @Column(name = "plan_de_estudios")
-    private String planEstudiosAcademicProgram;
-    @ManyToOne
+    private String curriculumAcademicProgram;
+    /*@ManyToOne
     @JoinColumn(name = "id_academic_subunit", nullable = false)
     @JsonBackReference
-    private AcademicSubUnit academicSubUnit;
+    private AcademicSubUnit academicSubUnit;*/
 }
