@@ -1,6 +1,6 @@
 package com.plangestionestudios.gestion.services.emphasisLine;
 
-import com.plangestionestudios.gestion.entities.AcademicUnit;
+
 import com.plangestionestudios.gestion.entities.EmphasisLine;
 
 import java.util.List;
