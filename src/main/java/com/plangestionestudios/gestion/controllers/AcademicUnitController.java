@@ -15,6 +15,7 @@ public class AcademicUnitController {
     @Autowired
     private AcademicUnitService academicUnitService;
 
+
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> deleteBloque(@PathVariable("id") int id) {
         boolean wasDeleteAcademicUnit = academicUnitService.deleteAcademicUnit(id);
@@ -41,6 +42,7 @@ public class AcademicUnitController {
         if(academicUnit != null) return new ResponseEntity<>(academicUnit, HttpStatus.OK);
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
+
 
     @PostMapping("")
     public ResponseEntity<AcademicUnit> createAcademicUnits(@RequestBody AcademicUnit academicUnit) {
